@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AgiSmart – Smart farming platform helping Indian farmers with crop guidance, weather updates, market prices and government schemes." />
+  <title>AgiSmart – Smart Farming for Every Farmer</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a class="nav-brand" href="index.html">
+      <span class="brand-icon">🌾</span>
+      AgiSmart
+    </a>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="pages/crops.html">Crop Guide</a></li>
+      <li><a href="pages/weather.html">Weather</a></li>
+      <li><a href="pages/market.html">Market Prices</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="Hero section">
+    <div class="hero-content">
+      <span class="hero-badge">🌱 Smart Agriculture Platform</span>
+      <h1>Grow Smarter.<br><span>Farm Better.</span></h1>
+      <p>AgiSmart empowers Indian farmers with real-time weather data, crop guidance, live market prices and the latest government schemes — all in one place.</p>
+      <div class="hero-actions">
+        <a href="pages/crops.html" class="btn btn-primary">🌿 Explore Crops</a>
+        <a href="pages/market.html" class="btn btn-outline">📈 Market Prices</a>
+      </div>
+    </div>
+    <div class="hero-illustration" aria-hidden="true">🌾</div>
+  </section>
+
+  <!-- ===== STATS BAR ===== -->
+  <div class="stats-bar" role="region" aria-label="Key statistics">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number" data-count="50" data-suffix="+">50+</div>
+        <div class="stat-label">Crops Covered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="500" data-suffix="+">500+</div>
+        <div class="stat-label">Market Centers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="28">28</div>
+        <div class="stat-label">States &amp; UTs</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="12">12</div>
+        <div class="stat-label">Govt. Schemes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FEATURES ===== -->
+  <main>
+    <div class="section" id="features">
+      <div class="section-header">
+        <span class="section-tag">What We Offer</span>
+        <h2>Everything a Farmer Needs</h2>
+        <p>From planting season to harvest, AgiSmart is your trusted digital companion at every step.</p>
+      </div>
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-icon">🌦️</div>
+          <h3>Live Weather Updates</h3>
+          <p>Get hyperlocal weather forecasts including rainfall predictions, temperature trends and soil moisture advisory directly relevant to your farm.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🌿</div>
+          <h3>Crop Guide &amp; Calendar</h3>
+          <p>Season-wise crop recommendations, sowing calendars, fertiliser schedules and pest management tips curated by agriculture experts.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Live Market Prices</h3>
+          <p>Real-time mandi prices from 500+ agricultural market centres across India, updated every few minutes so you always sell at the right price.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🏛️</div>
+          <h3>Government Schemes</h3>
+          <p>Stay informed about PM-KISAN, crop insurance, soil health cards, subsidies and other central and state government programmes.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🔬</div>
+          <h3>Soil Health Advisor</h3>
+          <p>Understand your soil type, pH level and nutrient requirements. Get personalised recommendations for soil amendment and fertilisation.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Mobile Friendly</h3>
+          <p>Access AgiSmart from any smartphone, tablet or computer — even on slow internet connections in rural areas.</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- ===== QUICK OVERVIEW: WEATHER + CROPS ===== -->
+    <div class="section" id="overview" style="padding-top:0">
+      <div style="display:grid; grid-template-columns: 1fr 1.6fr; gap:1.8rem; align-items:start" class="overview-grid">
+
+        <!-- Weather Widget -->
+        <div id="weatherWidget" class="weather-widget" role="region" aria-label="Current weather">
+          <h3>🌤️ Today's Weather</h3>
+          <div class="weather-main">
+            <div class="weather-icon-big">⛅</div>
+            <div>
+              <div class="weather-temp">--°C</div>
+              <div class="weather-condition" style="font-size:.95rem; opacity:.9;">Loading…</div>
+            </div>
+          </div>
+          <div class="weather-details">
+            <div class="weather-detail-item">
+              <div class="value weather-humid">--%</div>
+              <div class="label">Humidity</div>
+            </div>
+            <div class="weather-detail-item">
+              <div class="value weather-wind">-- km/h</div>
+              <div class="label">Wind</div>
+            </div>
+            <div class="weather-detail-item">
+              <div class="value">Good</div>
+              <div class="label">Farm Suitability</div>
+            </div>
+          </div>
+          <a href="pages/weather.html" class="btn btn-outline" style="margin-top:1.2rem; font-size:.9rem; padding:.6rem 1.2rem">See Full Forecast →</a>
+        </div>
+
+        <!-- Popular Crops -->
+        <div>
+          <div class="section-header" style="text-align:left; margin-bottom:1.2rem">
+            <span class="section-tag">Trending</span>
+            <h2 style="font-size:1.5rem">Popular Crops This Season</h2>
+          </div>
+          <div class="crops-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px,1fr))">
+            <div class="crop-card">
+              <div class="crop-thumb">🌾</div>
+              <div class="crop-info">
+                <h4>Wheat</h4>
+                <p>Rabi season crop</p>
+                <span class="crop-tag season-rabi">Rabi</span>
+              </div>
+            </div>
+            <div class="crop-card">
+              <div class="crop-thumb">🌽</div>
+              <div class="crop-info">
+                <h4>Maize</h4>
+                <p>Kharif &amp; Rabi</p>
+                <span class="crop-tag season-kharif">Kharif</span>
+              </div>
+            </div>
+            <div class="crop-card">
+              <div class="crop-thumb">🍅</div>
+              <div class="crop-info">
+                <h4>Tomato</h4>
+                <p>Vegetable crop</p>
+                <span class="crop-tag season-zaid">Zaid</span>
+              </div>
+            </div>
+            <div class="crop-card">
+              <div class="crop-thumb">🧅</div>
+              <div class="crop-info">
+                <h4>Onion</h4>
+                <p>Cash crop</p>
+                <span class="crop-tag season-rabi">Rabi</span>
+              </div>
+            </div>
+          </div>
+          <a href="pages/crops.html" class="btn btn-green" style="margin-top:1.2rem">View All Crops →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FARMING TIPS ===== -->
+    <div style="background: var(--green-pale); padding: 1px 0">
+      <div class="section" id="tips">
+        <div class="section-header">
+          <span class="section-tag">Expert Advice</span>
+          <h2>Seasonal Farming Tips</h2>
+          <p>Practical tips from agronomists to help you maximise yield and reduce costs.</p>
+        </div>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-num">1</div>
+            <div class="tip-text">
+              <h4>Soil Testing Before Sowing</h4>
+              <p>Test your soil's pH and nutrient levels before every season to apply the right fertiliser and avoid overuse.</p>
+            </div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-num">2</div>
+            <div class="tip-text">
+              <h4>Use Certified Seeds</h4>
+              <p>Always buy certified, disease-resistant seeds from authorised dealers to ensure better germination and higher yield.</p>
+            </div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-num">3</div>
+            <div class="tip-text">
+              <h4>Drip Irrigation Saves Water</h4>
+              <p>Switch to drip or sprinkler irrigation to reduce water consumption by up to 50% while improving crop health.</p>
+            </div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-num">4</div>
+            <div class="tip-text">
+              <h4>Crop Rotation Benefits</h4>
+              <p>Rotating legumes with cereals naturally enriches soil nitrogen, breaks pest cycles, and improves overall farm productivity.</p>
+            </div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-num">5</div>
+            <div class="tip-text">
+              <h4>Integrated Pest Management</h4>
+              <p>Combine biological, cultural and chemical pest control methods to reduce pesticide costs and protect the environment.</p>
+            </div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-num">6</div>
+            <div class="tip-text">
+              <h4>Post-Harvest Storage</h4>
+              <p>Store produce in cool, dry, ventilated storage. Use hermetic bags or warehouses to reduce post-harvest losses significantly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== GOVERNMENT SCHEMES ===== -->
+    <div class="section" id="schemes">
+      <div class="section-header">
+        <span class="section-tag">Government Support</span>
+        <h2>Key Schemes for Farmers</h2>
+        <p>Know your entitlements and benefits under central and state government programmes.</p>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:1rem">
+        <div class="scheme-card">
+          <h4>🌾 PM-KISAN Scheme</h4>
+          <p>Pradhan Mantri Kisan Samman Nidhi provides ₹6,000 per year to eligible farmer families in three equal instalments directly into their bank account.</p>
+          <a href="pages/contact.html" class="scheme-link">Learn More →</a>
+        </div>
+        <div class="scheme-card">
+          <h4>🛡️ Pradhan Mantri Fasal Bima Yojana</h4>
+          <p>Crop insurance scheme covering losses from natural calamities, pests and diseases. Farmers pay minimal premium while government subsidises the rest.</p>
+          <a href="pages/contact.html" class="scheme-link">Learn More →</a>
+        </div>
+        <div class="scheme-card">
+          <h4>🧪 Soil Health Card Scheme</h4>
+          <p>Free soil health cards for all farmers providing information about soil nutrient status and fertiliser recommendations for 12 parameters.</p>
+          <a href="pages/contact.html" class="scheme-link">Learn More →</a>
+        </div>
+        <div class="scheme-card">
+          <h4>💧 Pradhan Mantri Krishi Sinchai Yojana</h4>
+          <p>Ensures irrigation access at farm level, expanding cultivable area under assured irrigation and improving water use efficiency.</p>
+          <a href="pages/contact.html" class="scheme-link">Learn More →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <div class="cta-banner">
+      <h2>Have a question about your farm?</h2>
+      <p>Our agriculture experts are here to help. Reach out for personalised advice on crops, soil, weather and more.</p>
+      <a href="pages/contact.html" class="btn btn-primary">📩 Contact an Expert</a>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><span>🌾</span> AgiSmart</div>
+        <p>Empowering India's farming community with technology, knowledge and timely information for a prosperous agricultural future.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/crops.html">Crop Guide</a></li>
+          <li><a href="pages/weather.html">Weather</a></li>
+          <li><a href="pages/market.html">Market Prices</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#schemes">Govt. Schemes</a></li>
+          <li><a href="#tips">Farming Tips</a></li>
+          <li><a href="pages/crops.html">Crop Calendar</a></li>
+          <li><a href="pages/market.html">Mandi Prices</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:help@agismart.in">help@agismart.in</a></li>
+          <li><a href="tel:18001234567">1800-123-4567</a></li>
+          <li><a href="pages/contact.html">Send Message</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 AgiSmart. All rights reserved.</span>
+      <span>Made with ❤️ for Indian Farmers</span>
+    </div>
+  </footer>
+
+  <!-- Toast & scroll-to-top -->
+  <div id="toast" role="status" aria-live="polite"></div>
+  <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
