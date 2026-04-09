@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Complete crop guide with season-wise recommendations, sowing calendars, fertiliser tips and pest management for Indian farmers." />
+  <title>Crop Guide – AgiSmart</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>" />
+  <style>
+    .filter-bar {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .filter-btn {
+      padding: .5rem 1.1rem;
+      border-radius: 20px;
+      border: 2px solid var(--green-main);
+      background: transparent;
+      color: var(--green-main);
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: .2s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active-filter {
+      background: var(--green-main);
+      color: #fff;
+    }
+    .crop-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem;
+    }
+    .crop-detail-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform .2s;
+    }
+    .crop-detail-card:hover { transform: translateY(-4px); }
+    .crop-header {
+      padding: 1.4rem 1.4rem .6rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .crop-emoji { font-size: 2.8rem; line-height: 1; }
+    .crop-header-text h3 { font-size: 1.1rem; font-weight: 700; color: var(--green-dark); }
+    .crop-header-text .subtitle { font-size: .82rem; color: var(--text-mid); margin-top: .15rem; }
+    .crop-meta {
+      padding: .3rem 1.4rem .8rem;
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+    .meta-badge {
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .2rem .6rem;
+      border-radius: 12px;
+      background: var(--green-pale);
+      color: var(--green-dark);
+    }
+    .crop-body {
+      border-top: 1px solid #eee;
+      padding: 1rem 1.4rem 1.4rem;
+    }
+    .crop-body dl { display: grid; grid-template-columns: auto 1fr; gap: .3rem .8rem; font-size: .87rem; }
+    .crop-body dt { color: var(--text-mid); font-weight: 600; }
+    .crop-body dd { color: var(--text-dark); }
+    .overview-grid { grid-template-columns: 1fr !important; }
+    @media (max-width: 600px) { .crop-detail-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 380px) { .crop-detail-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a class="nav-brand" href="../index.html"><span class="brand-icon">🌾</span>AgiSmart</a>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="crops.html" class="active">Crop Guide</a></li>
+      <li><a href="weather.html">Weather</a></li>
+      <li><a href="market.html">Market Prices</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span>›</span> Crop Guide
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>🌿 Crop Guide</h1>
+    <p>Season-wise crop recommendations, sowing calendars, care tips and harvest guidance for 30+ major crops grown in India.</p>
+  </div>
+
+  <main>
+    <div class="section">
+
+      <!-- FILTER BAR -->
+      <div class="section-header">
+        <span class="section-tag">Filter by Season</span>
+        <h2>Choose Your Crop</h2>
+        <p>Browse crops by farming season to plan your cultivation calendar.</p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active-filter" data-filter="all">🌐 All Seasons</button>
+        <button class="filter-btn" data-filter="kharif">☀️ Kharif (Jun–Nov)</button>
+        <button class="filter-btn" data-filter="rabi">❄️ Rabi (Nov–Apr)</button>
+        <button class="filter-btn" data-filter="zaid">🌞 Zaid (Apr–Jun)</button>
+      </div>
+
+      <!-- CROP CARDS GRID -->
+      <div class="crop-detail-grid">
+
+        <!-- Wheat -->
+        <div class="crop-detail-card" data-season="rabi">
+          <div class="crop-header">
+            <div class="crop-emoji">🌾</div>
+            <div class="crop-header-text">
+              <h3>Wheat</h3>
+              <div class="subtitle">Triticum aestivum</div>
+            </div>
+          </div>
+          <div class="crop-meta">
+            <span class="meta-badge season-rabi">Rabi</span>
+            <span class="meta-badge">Cereal</span>
+          </div>
+          <div class="crop-body">
+            <dl>
+              <dt>Sowing:</dt><dd>Oct – Dec</dd>
+              <dt>Harvest:</dt><dd>Mar – May</dd>
+              <dt>Duration:</dt><dd>120–150 days</dd>
+              <dt>Water:</dt><dd>Moderate (450 mm)</dd>
+              <dt>Soil:</dt><dd>Loam / Clay-loam</dd>
+              <dt>Yield:</dt><dd>3–5 tonnes/ha</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Rice / Paddy -->
+        <div class="crop-detail-card" data-season="kharif">
+          <div class="crop-header">
+            <div class="crop-emoji">🍚</div>
+            <div class="crop-header-text">
+              <h3>Rice (Paddy)</h3>
+              <div class="subtitle">Oryza sativa</div>
+            </div>
+          </div>
+          <div class="crop-meta">
+            <span class="meta-badge season-kharif">Kharif</span>
+            <span class="meta-badge">Cereal</span>
+          </div>
+          <div class="crop-body">
+            <dl>
+              <dt>Sowing:</dt><dd>Jun – Jul</dd>
+              <dt>Harvest:</dt><dd>Oct – Nov</dd>
+              <dt>Duration:</dt><dd>100–150 days</dd>
+              <dt>Water:</dt><dd>High (1200–2000 mm)</dd>
+              <dt>Soil:</dt><dd>Clay / Heavy loam</dd>
+              <dt>Yield:</dt><dd>4–6 tonnes/ha</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Maize -->
+        <div class="crop-detail-card" data-season="kharif">
+          <div class="crop-header">
+            <div class="crop-emoji">🌽</div>
+            <div class="crop-header-text">
+              <h3>Maize (Corn)</h3>
+              <div class="subtitle">Zea mays</div>
+            </div>
+          </div>
+          <div class="crop-meta">
+            <span class="meta-badge season-kharif">Kharif</span>
+            <span class="meta-badge">Cereal</span>
+          </div>
+          <div class="crop-body">
+            <dl>
+              <dt>Sowing:</dt><dd>Jun – Jul</dd>
+              <dt>Harvest:</dt><dd>Sep – Oct</dd>
+              <dt>Duration:</dt><dd>90–120 days</dd>
+              <dt>Water:</dt><dd>Moderate (500–800 mm)</dd>
+              <dt>Soil:</dt><dd>Well-drained loam</dd>
+              <dt>Yield:</dt><dd>5–8 tonnes/ha</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Soybean -->
+        <div class="crop-detail-card" data-season="kharif">
+          <div class="crop-header">
+            <div class="crop-emoji">🫘</div>
+            <div class="crop-header-text">
+              <h3>Soybean</h3>
+              <div class="subtitle">Glycine max</div>
+            </div>
+          </div>
+          <div class="crop-meta">
+            <span class="meta-badge season-kharif">Kharif</span>
+            <span class="meta-badge">Oilseed</span>
+          </div>
+          <div class="crop-body">
+            <dl>
+              <dt>Sowing:</dt><dd>Jun – Jul</dd>
+              <dt>Harvest:</dt><dd>Sep – Nov</dd>
+              <dt>Duration:</dt><dd>95–115 days</dd>
+              <dt>Water:</dt><dd>Moderate (500–700 mm)</dd>
+              <dt>Soil:</dt><dd>Well-drained loam</dd>
+              <dt>Yield:</dt><dd>1.5–2.5 tonnes/ha</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Mustard -->
+        <div class="crop-detail-card" data-season="rabi">
+          <div class="crop-header">
+            <div class="crop-emoji">🌼</div>
+            <div class="crop-header-text">
+              <h3>Mustard</h3>
+              <div class="subtitle">Brassica juncea</div>
+            </div>
+          </div>
+          <div class="crop-meta">
+            <span class="meta-badge season-rabi">Rabi</span>
+            <span class="meta-badge">Oilseed</span>
+          </div>
+          <div class="crop-body">
+            <dl>
+              <dt>Sowing:</dt><dd>Oct – Nov</dd>
+              <dt>Harvest:</dt><dd>Feb – Mar</dd>
+              <dt>Duration:</dt><dd>110–140 days</dd>
+              <dt>Water:</dt><dd>Low (250–400 mm)</dd>
+              <dt>Soil:</dt><dd>Sandy loam to loam</dd>
+              <dt>Yield:</dt><dd>1.2–1.8 tonnes/ha</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Cotton -->
+        <div class="crop-detail-card" data-season="kharif">
+          <div class="crop-header">
+            <div class="crop-emoji">🌸</div>
+            <div class="crop-header-text">
+              <h3>Cotton</h3>
+              <div class="subtitle">Gossypium hirsutum</div>
+            </div>
+          </div>
+          <div class="crop-meta">
+            <span class="meta-badge season-kharif">Kharif</span>
+            <span class="meta-badge">Fibre</span>
+          </div>
+          <div class="crop-body">
+            <dl>
+              <dt>Sowing:</dt><dd>Apr – Jun</dd>
+              <dt>Harvest:</dt><dd>Oct – Jan</dd>
+              <dt>Duration:</dt><dd>150–180 days</dd>
+              <dt>Water:</dt><dd>Moderate (700–1200 mm)</dd>
+              <dt>Soil:</dt><dd>Black cotton / Deep loam</dd>
+              <dt>Yield:</dt><dd>2–4 tonnes/ha (seed cotton)</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Tomato -->
+        <div class="crop-detail-card" data-season="zaid">
+          <div class="crop-header">
+            <div class="crop-emoji">🍅</div>
+            <div class="crop-header-text">
+              <h3>Tomato</h3>
+              <div class="subtitle">Solanum lycopersicum</div>
+            </div>
+          </div>
+          <div class="crop-meta">
+            <span class="meta-badge season-zaid">Zaid</span>
+            <span class="meta-badge">Vegetable</span>
+          </div>
+          <div class="crop-body">
+            <dl>
+              <dt>Sowing:</dt><dd>Nov – Jan (transplant)</dd>
+              <dt>Harvest:</dt><dd>Mar – Jun</dd>
+              <dt>Duration:</dt><dd>75–90 days</dd>
+              <dt>Water:</dt><dd>Moderate (600–900 mm)</dd>
+              <dt>Soil:</dt><dd>Well-drained sandy loam</dd>
+              <dt>Yield:</dt><dd>25–35 tonnes/ha</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Onion -->
+        <div class="crop-detail-card" data-season="rabi">
+          <div class="crop-header">
+            <div class="crop-emoji">🧅</div>
+            <div class="crop-header-text">
+              <h3>Onion</h3>
+              <div class="subtitle">Allium cepa</div>
+            </div>
+          </div>
+          <div class="crop-meta">
+            <span class="meta-badge season-rabi">Rabi</span>
+            <span class="meta-badge">Vegetable</span>
+          </div>
+          <div class="crop-body">
+            <dl>
+              <dt>Sowing:</dt><dd>Oct – Nov (transplant)</dd>
+              <dt>Harvest:</dt><dd>Mar – Apr</dd>
+              <dt>Duration:</dt><dd>120–150 days</dd>
+              <dt>Water:</dt><dd>Moderate (350–550 mm)</dd>
+              <dt>Soil:</dt><dd>Medium to heavy loam</dd>
+              <dt>Yield:</dt><dd>20–30 tonnes/ha</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Potato -->
+        <div class="crop-detail-card" data-season="rabi">
+          <div class="crop-header">
+            <div class="crop-emoji">🥔</div>
+            <div class="crop-header-text">
+              <h3>Potato</h3>
+              <div class="subtitle">Solanum tuberosum</div>
+            </div>
+          </div>
+          <div class="crop-meta">
+            <span class="meta-badge season-rabi">Rabi</span>
+            <span class="meta-badge">Vegetable</span>
+          </div>
+          <div class="crop-body">
+            <dl>
+              <dt>Sowing:</dt><dd>Oct – Dec</dd>
+              <dt>Harvest:</dt><dd>Jan – Mar</dd>
+              <dt>Duration:</dt><dd>80–100 days</dd>
+              <dt>Water:</dt><dd>Moderate (500–700 mm)</dd>
+              <dt>Soil:</dt><dd>Loose sandy loam</dd>
+              <dt>Yield:</dt><dd>20–30 tonnes/ha</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Groundnut -->
+        <div class="crop-detail-card" data-season="kharif">
+          <div class="crop-header">
+            <div class="crop-emoji">🥜</div>
+            <div class="crop-header-text">
+              <h3>Groundnut</h3>
+              <div class="subtitle">Arachis hypogaea</div>
+            </div>
+          </div>
+          <div class="crop-meta">
+            <span class="meta-badge season-kharif">Kharif</span>
+            <span class="meta-badge">Oilseed</span>
+          </div>
+          <div class="crop-body">
+            <dl>
+              <dt>Sowing:</dt><dd>Jun – Jul</dd>
+              <dt>Harvest:</dt><dd>Oct – Nov</dd>
+              <dt>Duration:</dt><dd>100–130 days</dd>
+              <dt>Water:</dt><dd>Moderate (500–1000 mm)</dd>
+              <dt>Soil:</dt><dd>Light sandy loam</dd>
+              <dt>Yield:</dt><dd>1.5–2.5 tonnes/ha</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Sugarcane -->
+        <div class="crop-detail-card" data-season="zaid">
+          <div class="crop-header">
+            <div class="crop-emoji">🎋</div>
+            <div class="crop-header-text">
+              <h3>Sugarcane</h3>
+              <div class="subtitle">Saccharum officinarum</div>
+            </div>
+          </div>
+          <div class="crop-meta">
+            <span class="meta-badge season-zaid">Zaid</span>
+            <span class="meta-badge">Cash Crop</span>
+          </div>
+          <div class="crop-body">
+            <dl>
+              <dt>Sowing:</dt><dd>Feb – Mar</dd>
+              <dt>Harvest:</dt><dd>Nov – Feb</dd>
+              <dt>Duration:</dt><dd>10–14 months</dd>
+              <dt>Water:</dt><dd>High (1500–2500 mm)</dd>
+              <dt>Soil:</dt><dd>Deep well-drained loam</dd>
+              <dt>Yield:</dt><dd>70–100 tonnes/ha</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Chilli -->
+        <div class="crop-detail-card" data-season="kharif">
+          <div class="crop-header">
+            <div class="crop-emoji">🌶️</div>
+            <div class="crop-header-text">
+              <h3>Chilli</h3>
+              <div class="subtitle">Capsicum annuum</div>
+            </div>
+          </div>
+          <div class="crop-meta">
+            <span class="meta-badge season-kharif">Kharif</span>
+            <span class="meta-badge">Spice</span>
+          </div>
+          <div class="crop-body">
+            <dl>
+              <dt>Sowing:</dt><dd>Jun – Aug (transplant)</dd>
+              <dt>Harvest:</dt><dd>Nov – Feb</dd>
+              <dt>Duration:</dt><dd>150–180 days</dd>
+              <dt>Water:</dt><dd>Moderate (600–1250 mm)</dd>
+              <dt>Soil:</dt><dd>Sandy loam to clay loam</dd>
+              <dt>Yield:</dt><dd>2–3 tonnes/ha (dry)</dd>
+            </dl>
+          </div>
+        </div>
+
+      </div><!-- end grid -->
+    </div>
+
+    <!-- CROP CALENDAR -->
+    <div style="background: var(--green-pale); padding: 1px 0">
+      <div class="section">
+        <div class="section-header">
+          <span class="section-tag">Planning Tool</span>
+          <h2>Annual Crop Calendar</h2>
+          <p>An overview of when to sow, grow and harvest key crops across the year.</p>
+        </div>
+        <div style="background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); overflow-x:auto">
+          <table style="width:100%; border-collapse:collapse; font-size:.88rem; min-width:680px">
+            <thead>
+              <tr style="background:var(--green-dark); color:#fff">
+                <th style="padding:.8rem 1rem; text-align:left">Crop</th>
+                <th style="padding:.8rem .6rem; text-align:center">Jan</th>
+                <th style="padding:.8rem .6rem; text-align:center">Feb</th>
+                <th style="padding:.8rem .6rem; text-align:center">Mar</th>
+                <th style="padding:.8rem .6rem; text-align:center">Apr</th>
+                <th style="padding:.8rem .6rem; text-align:center">May</th>
+                <th style="padding:.8rem .6rem; text-align:center">Jun</th>
+                <th style="padding:.8rem .6rem; text-align:center">Jul</th>
+                <th style="padding:.8rem .6rem; text-align:center">Aug</th>
+                <th style="padding:.8rem .6rem; text-align:center">Sep</th>
+                <th style="padding:.8rem .6rem; text-align:center">Oct</th>
+                <th style="padding:.8rem .6rem; text-align:center">Nov</th>
+                <th style="padding:.8rem .6rem; text-align:center">Dec</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- legend: 🌱 sow, 🌿 grow, 🌾 harvest -->
+              <tr style="border-bottom:1px solid #eee">
+                <td style="padding:.7rem 1rem; font-weight:600">🌾 Wheat</td>
+                <td></td><td></td><td style="text-align:center">🌾</td><td style="text-align:center">🌾</td>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td style="text-align:center">🌱</td><td style="text-align:center">🌿</td><td style="text-align:center">🌿</td>
+              </tr>
+              <tr style="border-bottom:1px solid #eee; background:#fafafa">
+                <td style="padding:.7rem 1rem; font-weight:600">🍚 Rice</td>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td style="text-align:center">🌱</td><td style="text-align:center">🌿</td>
+                <td style="text-align:center">🌿</td><td style="text-align:center">🌿</td>
+                <td style="text-align:center">🌾</td><td style="text-align:center">🌾</td><td></td>
+              </tr>
+              <tr style="border-bottom:1px solid #eee">
+                <td style="padding:.7rem 1rem; font-weight:600">🌽 Maize</td>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td style="text-align:center">🌱</td><td style="text-align:center">🌿</td>
+                <td style="text-align:center">🌿</td>
+                <td style="text-align:center">🌾</td><td style="text-align:center">🌾</td><td></td><td></td>
+              </tr>
+              <tr style="border-bottom:1px solid #eee; background:#fafafa">
+                <td style="padding:.7rem 1rem; font-weight:600">🧅 Onion</td>
+                <td></td><td></td><td style="text-align:center">🌾</td><td style="text-align:center">🌾</td>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td style="text-align:center">🌱</td><td style="text-align:center">🌿</td><td style="text-align:center">🌿</td>
+              </tr>
+              <tr style="border-bottom:1px solid #eee">
+                <td style="padding:.7rem 1rem; font-weight:600">🍅 Tomato</td>
+                <td style="text-align:center">🌿</td><td style="text-align:center">🌿</td>
+                <td style="text-align:center">🌾</td><td style="text-align:center">🌾</td>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td>
+                <td style="text-align:center">🌱</td><td style="text-align:center">🌿</td>
+              </tr>
+              <tr style="background:#fafafa">
+                <td style="padding:.7rem 1rem; font-weight:600">🌼 Mustard</td>
+                <td></td><td></td><td style="text-align:center">🌾</td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td style="text-align:center">🌱</td><td style="text-align:center">🌿</td><td style="text-align:center">🌿</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:.8rem; color:var(--text-mid); padding:.6rem 1rem">🌱 Sowing &nbsp; 🌿 Growing &nbsp; 🌾 Harvest</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ ACCORDION -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-tag">FAQs</span>
+        <h2>Common Crop Questions</h2>
+      </div>
+      <div class="accordion" style="max-width:800px; margin:0 auto">
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            How do I choose the right crop for my soil?
+            <span class="acc-icon">▾</span>
+          </button>
+          <div class="accordion-body">
+            Conduct a soil test to determine texture, pH (ideal 6–7 for most crops) and nutrient levels. Sandy soils suit groundnut and potato; clay soils are ideal for rice; loam soils work for most cereals and vegetables. Match the crop's water requirement to your irrigation capacity.
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            What is crop rotation and why is it important?
+            <span class="acc-icon">▾</span>
+          </button>
+          <div class="accordion-body">
+            Crop rotation means growing different crops in the same field in successive seasons. It breaks pest and disease cycles, improves soil structure, replenishes nutrients (especially when legumes are included), and reduces dependency on chemical fertilisers.
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            When should I apply fertiliser for wheat?
+            <span class="acc-icon">▾</span>
+          </button>
+          <div class="accordion-body">
+            For wheat: apply half the nitrogen + full phosphorus + full potassium as basal dose at sowing. Apply the remaining nitrogen in two splits — first at crown root initiation (21 days) and second at jointing stage (45 days). Always follow the soil test-based recommendation for your area.
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            How can I protect my crop from pests naturally?
+            <span class="acc-icon">▾</span>
+          </button>
+          <div class="accordion-body">
+            Use Integrated Pest Management (IPM): install pheromone traps, use neem-based biopesticides, practice intercropping to confuse pests, encourage natural predators like ladybirds and spiders, and follow proper field sanitation. Chemical pesticides should be the last resort.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-banner">
+      <h2>Need personalised crop advice?</h2>
+      <p>Get in touch with our agronomists for tailored guidance specific to your field and region.</p>
+      <a href="contact.html" class="btn btn-primary">📩 Ask an Expert</a>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><span>🌾</span> AgiSmart</div>
+        <p>Empowering India's farming community with technology, knowledge and timely information.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="crops.html">Crop Guide</a></li>
+          <li><a href="weather.html">Weather</a></li>
+          <li><a href="market.html">Market Prices</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Seasons</h4>
+        <ul>
+          <li><a href="#">Kharif Crops</a></li>
+          <li><a href="#">Rabi Crops</a></li>
+          <li><a href="#">Zaid Crops</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:help@agismart.in">help@agismart.in</a></li>
+          <li><a href="tel:18001234567">1800-123-4567</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 AgiSmart. All rights reserved.</span>
+      <span>Made with ❤️ for Indian Farmers</span>
+    </div>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+  <script src="../js/main.js"></script>
+</body>
+</html>
